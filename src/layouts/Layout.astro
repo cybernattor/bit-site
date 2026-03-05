@@ -35,25 +35,46 @@ const { title, description, image = "/og-image.png" } = Astro.props;
 
 		<!-- Preconnect to external domains -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+		<!-- Global CSS -->
+		<link rel="stylesheet" href="/styles/global.css" />
 	</head>
-	<body class="bg-slate-950 text-slate-100 font-sans antialiased">
+	<body class="bg-slate-950 text-slate-100 font-[Inter:sans-serif] antialiased">
 		<div class="min-h-screen flex flex-col">
 			<!-- Header -->
-			<header class="border-b border-slate-800">
+			<header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
 				<nav class="container mx-auto px-4 py-4">
 					<div class="flex items-center justify-between">
 						<div class="flex items-center space-x-2">
-							<svg class="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-							</svg>
+							<div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-lg flex items-center justify-center">
+								<svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+									<path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+								</svg>
+							</div>
 							<span class="text-xl font-bold bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent">
 								bit Tecnologies
 							</span>
 						</div>
 						<div class="hidden md:flex space-x-6">
-							<a href="#apps" class="text-slate-300 hover:text-white transition-colors">Приложения</a>
-							<a href="#compatibility" class="text-slate-300 hover:text-white transition-colors">Совместимость</a>
-							<a href="#download" class="text-slate-300 hover:text-white transition-colors">Скачать</a>
+							<a href="#apps" class="text-slate-300 hover:text-white transition-colors duration-200">Приложения</a>
+							<a href="#compatibility" class="text-slate-300 hover:text-white transition-colors duration-200">Совместимость</a>
+							<a href="#download" class="text-slate-300 hover:text-white transition-colors duration-200">Скачать</a>
+						</div>
+						<!-- Mobile menu button -->
+						<button class="md:hidden text-slate-300 hover:text-white transition-colors" onclick="toggleMobileMenu()">
+							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+							</svg>
+						</button>
+					</div>
+					<!-- Mobile menu -->
+					<div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+						<div class="flex flex-col space-y-2">
+							<a href="#apps" class="text-slate-300 hover:text-white transition-colors duration-200 py-2">Приложения</a>
+							<a href="#compatibility" class="text-slate-300 hover:text-white transition-colors duration-200 py-2">Совместимость</a>
+							<a href="#download" class="text-slate-300 hover:text-white transition-colors duration-200 py-2">Скачать</a>
 						</div>
 					</div>
 				</nav>
@@ -99,5 +120,19 @@ const { title, description, image = "/og-image.png" } = Astro.props;
 				</div>
 			</footer>
 		</div>
+
+		<script>
+			function toggleMobileMenu() {
+				const menu = document.getElementById('mobile-menu');
+				menu.classList.toggle('hidden');
+			}
+
+			// Close mobile menu when clicking on a link
+			document.querySelectorAll('#mobile-menu a').forEach(link => {
+				link.addEventListener('click', () => {
+					document.getElementById('mobile-menu').classList.add('hidden');
+				});
+			});
+		</script>
 	</body>
 </html>
