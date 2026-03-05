@@ -23,9 +23,4 @@ export default {
     },
   },
   plugins: [],
-  // Оптимизация для продакшена
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  },
 }
