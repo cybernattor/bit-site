@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
 
 const title = 'Политика конфиденциальности — bit Tecnologies';
 const description = 'Политика конфиденциальности bit Tecnologies. Узнайте как мы защищаем ваши данные и обеспечиваем приватность в наших приложениях.';
@@ -7,116 +8,116 @@ const image = '/og-bit-hub.png';
 ---
 
 <Layout title={title} description={description} image={image}>
-	<section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+	<section class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 transition-colors duration-300">
 		<div class="container mx-auto px-4 py-16 md:py-24">
-			<div class="max-w-4xl mx-auto">
+			<div class="max-w-4xl mx-auto z-10 relative">
 				<!-- Header -->
 				<div class="text-center mb-12">
-					<img src="/favicon.svg" alt="bit Tecnologies" class="w-20 h-20 mx-auto mb-6" />
-					<h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent font-display">
+					<img src="/favicon.svg" alt="bit Tecnologies" class="w-20 h-20 mx-auto mb-6 drop-shadow-md" />
+					<h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent font-display drop-shadow-sm">
 						Политика конфиденциальности
 					</h1>
-					<p class="text-lg text-slate-300 font-light">
+					<p class="text-lg text-slate-600 dark:text-slate-300 font-light transition-colors">
 						Последнее обновление: 5 марта 2026 г.
 					</p>
 				</div>
 
 				<!-- Content -->
-				<div class="glass-effect rounded-xl p-8 mb-8">
-					<div class="prose prose-invert max-w-none">
-						<h2 class="text-2xl font-bold text-white mb-4 font-display">Общие положения</h2>
-						<p class="text-slate-300 mb-6 leading-relaxed font-light">
+				<div class="glass-effect rounded-xl p-8 mb-8 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 backdrop-blur-md shadow-xl transition-colors">
+					<div class="max-w-none">
+						<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 font-display transition-colors">Общие положения</h2>
+						<p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-light transition-colors">
 							bit Tecnologies ("мы", "нас") уважает вашу конфиденциальность и обязуется защищать персональные данные пользователей наших приложений.
 							Эта политика конфиденциальности объясняет, какие данные мы собираем, как мы их используем и защищаем.
 						</p>
 
-						<h2 class="text-2xl font-bold text-white mb-4 mt-8 font-display">Собираемые данные</h2>
+						<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 mt-8 font-display transition-colors">Собираемые данные</h2>
 
-						<h3 class="text-xl font-semibold text-white mb-3 mt-6 font-display">bit Hub</h3>
-						<p class="text-slate-300 mb-4 font-light">bit Hub не собирает и не передает никакие персональные данные:</p>
-						<ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
+						<h3 class="text-xl font-semibold text-slate-800 dark:text-white mb-3 mt-6 font-display transition-colors">bit Hub</h3>
+						<p class="text-slate-600 dark:text-slate-300 mb-4 font-light transition-colors">bit Hub не собирает и не передает никакие персональные данные:</p>
+						<ul class="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2 mb-6 font-light transition-colors">
 							<li>Никакой telemetry или аналитики</li>
 							<li>Никаких идентификаторов устройств</li>
 							<li>Никаких данных об использовании</li>
 							<li>Никакой информации о местоположении</li>
 						</ul>
 
-						<h3 class="text-xl font-semibold text-white mb-3 mt-6 font-display">bit Delta (в разработке)</h3>
-						<p class="text-slate-300 mb-4 font-light">Планируется минимальный сбор данных:</p>
-						<ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
+						<h3 class="text-xl font-semibold text-slate-800 dark:text-white mb-3 mt-6 font-display transition-colors">bit Delta (в разработке)</h3>
+						<p class="text-slate-600 dark:text-slate-300 mb-4 font-light transition-colors">Планируется минимальный сбор данных:</p>
+						<ul class="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2 mb-6 font-light transition-colors">
 							<li>Email для уведомлений (только с согласия)</li>
 							<li>История покупок (только локально)</li>
 							<li>Предпочтения пользователя (только локально)</li>
 						</ul>
 
-						<h2 class="text-2xl font-bold text-white mb-4 mt-8 font-display">Использование данных</h2>
-						<p class="text-slate-300 mb-6 leading-relaxed font-light">
+						<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 mt-8 font-display transition-colors">Использование данных</h2>
+						<p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-light transition-colors">
 							Мы не используем ваши данные для рекламы, маркетинга или продажи третьим лицам.
 							Данные, если собираются, используются исключительно для функционирования приложения.
 						</p>
 
-						<h2 class="text-2xl font-bold text-white mb-4 mt-8 font-display">Хранение данных</h2>
-						<p class="text-slate-300 mb-6 leading-relaxed font-light">
+						<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 mt-8 font-display transition-colors">Хранение данных</h2>
+						<p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-light transition-colors">
 							Все данные хранятся локально на вашем устройстве. Мы не используем облачные серверы для хранения персональной информации.
 						</p>
 
-						<h2 class="text-2xl font-bold text-white mb-4 mt-8 font-display">Сторонние сервисы</h2>
-						<p class="text-slate-300 mb-6 leading-relaxed font-light">
+						<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 mt-8 font-display transition-colors">Сторонние сервисы</h2>
+						<p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-light transition-colors">
 							Наши приложения не интегрированы со сторонними аналитическими или рекламными сервисами.
 							Мы не используем Google Analytics, Firebase Analytics, Facebook SDK или подобные технологии.
 						</p>
 
-						<h2 class="text-2xl font-bold text-white mb-4 mt-8 font-display">Безопасность</h2>
-						<p class="text-slate-300 mb-6 leading-relaxed font-light">
+						<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 mt-8 font-display transition-colors">Безопасность</h2>
+						<p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-light transition-colors">
 							Мы применяем современные методы защиты данных:
 						</p>
-						<ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
+						<ul class="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2 mb-6 font-light transition-colors">
 							<li>Шифрование локальных данных</li>
 							<li>Защита от несанкционированного доступа</li>
 							<li>Регулярные обновления безопасности</li>
 							<li>Открытый исходный код для независимой проверки</li>
 						</ul>
 
-						<h2 class="text-2xl font-bold text-white mb-4 mt-8 font-display">Права пользователей</h2>
-						<p class="text-slate-300 mb-6 leading-relaxed font-light">
+						<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 mt-8 font-display transition-colors">Права пользователей</h2>
+						<p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-light transition-colors">
 							Вы имеете полное право на:
 						</p>
-						<ul class="list-disc list-inside text-slate-300 space-y-2 mb-6">
+						<ul class="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2 mb-6 font-light transition-colors">
 							<li>Не предоставлять никаких персональных данных</li>
 							<li>Удалить все данные приложения в любой момент</li>
 							<li>Изучить исходный код наших приложений</li>
 							<li>Не получать никаких уведомлений или маркетинговых сообщений</li>
 						</ul>
 
-						<h2 class="text-2xl font-bold text-white mb-4 mt-8 font-display">Дети</h2>
-						<p class="text-slate-300 mb-6 leading-relaxed font-light">
+						<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 mt-8 font-display transition-colors">Дети</h2>
+						<p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-light transition-colors">
 							Наши приложения не собирают персональные данные и не предназначены для сбора информации о детях.
 							Мы не сознательно собираем информацию о пользователях моложе 13 лет.
 						</p>
 
-						<h2 class="text-2xl font-bold text-white mb-4 mt-8 font-display">Изменения в политике</h2>
-						<p class="text-slate-300 mb-6 leading-relaxed font-light">
+						<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 mt-8 font-display transition-colors">Изменения в политике</h2>
+						<p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-light transition-colors">
 							Мы можем обновлять эту политику конфиденциальности. Все изменения будут опубликованы в приложении
 							и на нашем сайте. Дата последнего обновления указана в начале документа.
 						</p>
 
-						<h2 class="text-2xl font-bold text-white mb-4 mt-8 font-display">Контакты</h2>
-						<p class="text-slate-300 mb-6 leading-relaxed font-light">
+						<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4 mt-8 font-display transition-colors">Контакты</h2>
+						<p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-light transition-colors">
 							Если у вас есть вопросы о политике конфиденциальности, вы можете связаться с нами:
 						</p>
-						<div class="bg-slate-800/50 rounded-lg p-4 mb-6">
-							<ul class="space-y-2 text-slate-300">
+						<div class="bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg p-4 mb-6 transition-colors">
+							<ul class="space-y-2 text-slate-600 dark:text-slate-300">
 								<li class="flex items-center space-x-2">
-									<svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+									<svg class="w-4 h-4 text-blue-500 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
 									</svg>
-									<span>GitHub: <a href="https://github.com/cybernattor" class="text-blue-400 hover:text-blue-300">github.com/cybernattor</a></span>
+									<span>GitHub: <a href="https://github.com/cybernattor" class="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors">github.com/cybernattor</a></span>
 								</li>
 							</ul>
 						</div>
 
-						<div class="bg-emerald-500/10 border border-emerald-500/20 rounded-lg p-4 mt-8">
-							<p class="text-emerald-400 text-sm">
+						<div class="bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-200 dark:border-emerald-500/20 rounded-lg p-4 mt-8 transition-colors">
+							<p class="text-emerald-700 dark:text-emerald-400 text-sm">
 								<strong>Важно:</strong> Наша философия — приватность по умолчанию. Мы верим, что пользователи должны иметь полный контроль над своими данными.
 							</p>
 						</div>
@@ -125,18 +126,18 @@ const image = '/og-bit-hub.png';
 
 				<!-- Navigation -->
 				<div class="text-center">
-					<a href="/" class="inline-flex items-center space-x-2 px-6 py-3 border border-slate-600 text-slate-300 font-semibold rounded-lg hover:bg-slate-800 hover:text-white transition-all duration-200 mr-4">
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+					<Button href="/" variant="outline" class="mr-4">
+						<svg class="w-5 h-5 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/>
 						</svg>
 						<span>Вернуться на главную</span>
-					</a>
-					<a href="/about" class="inline-flex items-center space-x-2 px-6 py-3 border border-slate-600 text-slate-300 font-semibold rounded-lg hover:bg-slate-800 hover:text-white transition-all duration-200">
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+					</Button>
+					<Button href="/about" variant="outline">
+						<svg class="w-5 h-5 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
 						</svg>
 						<span>О компании</span>
-					</a>
+					</Button>
 				</div>
 			</div>
 		</div>

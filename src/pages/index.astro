@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
+import Button from '../components/Button.astro';
+import AppCard from '../components/AppCard.astro';
+import FeatureCard from '../components/FeatureCard.astro';
 
 const title = 'bit Tecnologies — Нативные Android приложения';
 const description = 'bit Tecnologies создает высокопроизводительные Android приложения. bit Hub — альтернатива F-Droid с нативной разработкой и оптимизацией.';
@@ -11,11 +13,11 @@ const image = '/og-bit-hub.png';
 	<!-- Hero Section -->
 	<section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
 		<div class="container mx-auto px-4 py-16 md:py-24">
-			<div class="text-center max-w-4xl mx-auto">
-				<div class="mb-6">
-					<img src="/favicon.svg" alt="bit Tecnologies" class="w-20 h-20 mx-auto mb-6" />
+			<div class="text-center max-w-4xl mx-auto z-10 relative">
+				<div class="mb-6" style="view-transition-name: hero-logo;">
+					<img src="/favicon.svg" alt="bit Tecnologies" class="w-20 h-20 mx-auto mb-6 drop-shadow-lg" />
 				</div>
-				<h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent animate-pulse font-display">
+				<h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent animate-pulse font-display drop-shadow-sm">
 					bit Tecnologies
 				</h1>
 				<p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
@@ -23,22 +25,15 @@ const image = '/og-bit-hub.png';
 					Минимум зависимостей, максимум оптимизации.
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-					<a
-						href="#download"
-						class="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-emerald-600 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transform hover:scale-105"
-						download
-					>
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+					<Button href="#download" variant="primary" download>
+						<svg class="w-5 h-5 drop-shadow" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M17 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14l-4-4h3V9h2v4h3l-4 4z"/>
 						</svg>
 						<span>Скачать bit Hub (APK)</span>
-					</a>
-					<a
-						href="/about"
-						class="w-full sm:w-auto px-8 py-3 border border-slate-600 text-slate-300 font-semibold rounded-lg hover:bg-slate-800 hover:text-white transition-all duration-200 hover:border-slate-500"
-					>
+					</Button>
+					<Button href="/about" variant="outline">
 						О компании
-					</a>
+					</Button>
 				</div>
 			</div>
 		</div>
@@ -61,72 +56,45 @@ const image = '/og-bit-hub.png';
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 				<!-- bit Hub Card -->
-				<a href="/bit-hub" class="block">
-				<div class="glass-effect rounded-xl p-6 hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10 group">
-					<div class="flex items-center space-x-4 mb-4">
-						<img src="/favicon.svg" alt="bit Hub" class="w-12 h-12 group-hover:scale-110 transition-transform duration-300" />
-						<div>
-							<h3 class="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors font-display">bit Hub</h3>
-							<span class="inline-block px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded-full">Beta</span>
-						</div>
-					</div>
-					<p class="text-slate-300 mb-4 leading-relaxed">
-						Альтернатива F-Droid с нативной разработкой. Магазин приложений с фокусом на приватность и производительность.
-					</p>
-					<div class="flex items-center justify-between text-sm text-slate-400">
-						<span>Android 10+</span>
-						<span>2.4 МБ</span>
-					</div>
-				</div>
-			</a>
+        <AppCard 
+          href="/bit-hub"
+          name="bit Hub"
+          status={{ label: "Beta", color: "emerald" }}
+          description="Альтернатива F-Droid с нативной разработкой. Магазин приложений с фокусом на приватность и производительность."
+          requirements="Android 10+"
+          size="2.4 МБ"
+          iconImage="/favicon.svg"
+        />
 
 				<!-- bit Delta Card -->
-				<a href="/bit-delta" class="block">
-				<div class="glass-effect rounded-xl p-6 hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/10 group">
-					<div class="flex items-center space-x-4 mb-4">
-						<div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-							<svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
-							</svg>
-						</div>
-						<div>
-							<h3 class="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors font-display">bit Delta</h3>
-							<span class="inline-block px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full">In Development</span>
-						</div>
-					</div>
-					<p class="text-slate-300 mb-4 leading-relaxed">
-						Шагомер, отслеживание активности и здоровья.
-					</p>
-					<div class="flex items-center justify-between text-sm text-slate-400">
-						<span>Android 12+</span>
-						<span>~5 МБ</span>
-					</div>
-				</div>
-			</a>
+        <AppCard 
+          href="/bit-delta"
+          name="bit Delta"
+          status={{ label: "In Development", color: "blue" }}
+          description="Шагомер, отслеживание активности и здоровья."
+          requirements="Android 12+"
+          size="~5 МБ"
+          iconBgColor="from-purple-500 to-pink-500"
+        >
+          <svg slot="icon" class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+        </AppCard>
 
 				<!-- bit Record Card -->
-				<a href="/bit-record" class="block">
-				<div class="glass-effect rounded-xl p-6 hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/10 group">
-					<div class="flex items-center space-x-4 mb-4">
-						<div class="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-							<svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V16H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z"/>
-							</svg>
-						</div>
-						<div>
-							<h3 class="text-xl font-semibold text-white group-hover:text-red-400 transition-colors font-display">bit Record</h3>
-							<span class="inline-block px-2 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">Planning</span>
-						</div>
-					</div>
-					<p class="text-slate-300 mb-4 leading-relaxed">
-						Простой, минималистичный сервис для записи экрана.
-					</p>
-					<div class="flex items-center justify-between text-sm text-slate-400">
-						<span>Android 11+</span>
-						<span>~3 МБ</span>
-					</div>
-				</div>
-			</a>
+        <AppCard 
+          href="/bit-record"
+          name="bit Record"
+          status={{ label: "Planning", color: "yellow" }}
+          description="Простой, минималистичный сервис для записи экрана."
+          requirements="Android 11+"
+          size="~3 МБ"
+          iconBgColor="from-red-500 to-orange-500"
+        >
+          <svg slot="icon" class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V16H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z"/>
+          </svg>
+        </AppCard>
 			</div>
 		</div>
 	</section>
@@ -143,13 +111,10 @@ const image = '/og-bit-hub.png';
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-					<div class="glass-effect rounded-xl p-6 hover:bg-slate-800/70 transition-all duration-300 group">
-						<div class="flex items-center space-x-3 mb-4">
-							<svg class="w-8 h-8 text-green-500 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M9,11H7V13H9V11M13,11H11V13H13V11M17,11H15V13H17V11M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V9H19V20Z"/>
-							</svg>
-							<h3 class="text-xl font-semibold text-white group-hover:text-green-400 transition-colors font-display">Минимальные требования</h3>
-						</div>
+          <FeatureCard title="Минимальные требования" iconColor="text-green-500">
+            <svg slot="icon" class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9,11H7V13H9V11M13,11H11V13H13V11M17,11H15V13H17V11M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V9H19V20Z"/>
+            </svg>
 						<ul class="space-y-2 text-slate-300">
 							<li class="flex items-center space-x-2">
 								<svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
@@ -170,15 +135,12 @@ const image = '/og-bit-hub.png';
 								<span>ARMv7 или ARM64 архитектура</span>
 							</li>
 						</ul>
-					</div>
+          </FeatureCard>
 
-					<div class="glass-effect rounded-xl p-6 hover:bg-slate-800/70 transition-all duration-300 group">
-						<div class="flex items-center space-x-3 mb-4">
-							<svg class="w-8 h-8 text-blue-500 group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
-							</svg>
-							<h3 class="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors font-display">Тестирование</h3>
-						</div>
+          <FeatureCard title="Тестирование" iconColor="text-blue-500">
+            <svg slot="icon" class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+            </svg>
 						<ul class="space-y-2 text-slate-300">
 							<li class="flex items-center space-x-2">
 								<svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
@@ -199,7 +161,7 @@ const image = '/og-bit-hub.png';
 								<span>Оптимизация для старых устройств</span>
 							</li>
 						</ul>
-					</div>
+          </FeatureCard>
 				</div>
 			</div>
 		</div>
@@ -213,16 +175,12 @@ const image = '/og-bit-hub.png';
 				<p class="text-lg text-slate-300 mb-8 font-light">
 					Скачайте bit Hub прямо сейчас и оцените преимущества нативных Android приложений
 				</p>
-				<a
-					href="#download"
-					class="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-emerald-500 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-emerald-600 transition-all duration-200 text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transform hover:scale-105"
-					download
-				>
-					<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+        <Button href="#download" variant="primary" download>
+					<svg class="w-6 h-6 drop-shadow" fill="currentColor" viewBox="0 0 24 24">
 						<path d="M17 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14l-4-4h3V9h2v4h3l-4 4z"/>
 					</svg>
 					<span>Скачать bit Hub</span>
-				</a>
+        </Button>
 				<p class="text-sm text-slate-500 mt-4">
 					Размер файла: ~2.4 МБ • Требуется Android 10+ • Установка из неизвестных источников
 				</p>

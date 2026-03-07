@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import FeatureCard from '../components/FeatureCard.astro';
 
 const title = 'bit Record — Минималистичный рекордер экрана';
 const description = 'bit Record — простой и минималистичный сервис для записи экрана Android. Нативная производительность и приватность.';
@@ -7,30 +9,30 @@ const image = '/og-bit-hub.png';
 ---
 
 <Layout title={title} description={description} image={image}>
-	<section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
+	<section class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 transition-colors duration-300">
 		<div class="container mx-auto px-4 py-16 md:py-24">
-			<div class="max-w-4xl mx-auto">
+			<div class="max-w-4xl mx-auto z-10 relative">
 				<!-- App Header -->
 				<div class="text-center mb-12">
-					<div class="w-24 h-24 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center mx-auto mb-6">
-						<svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+					<div class="w-24 h-24 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center mx-auto mb-6 drop-shadow-md">
+						<svg class="w-12 h-12 text-white drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V16H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z"/>
 						</svg>
 					</div>
-					<h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent font-display">
+					<h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-red-600 to-orange-500 dark:from-red-500 dark:to-orange-500 bg-clip-text text-transparent font-display drop-shadow-sm">
 						bit Record
 					</h1>
-					<p class="text-lg md:text-xl text-slate-300 mb-4 font-light">
+					<p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-4 font-light transition-colors">
 						Простой, минималистичный сервис для записи экрана
 					</p>
-					<div class="flex items-center justify-center space-x-4 mb-6">
-						<span class="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-400 text-sm rounded-full">Planning</span>
-						<span class="text-slate-400">•</span>
-						<span class="text-slate-400">Android 11+</span>
-						<span class="text-slate-400">•</span>
-						<span class="text-slate-400">~3 МБ</span>
+					<div class="flex items-center justify-center space-x-4 mb-6 transition-colors">
+						<span class="inline-block px-3 py-1 bg-yellow-100 dark:bg-yellow-500/20 text-yellow-700 dark:text-yellow-400 text-sm rounded-full">Planning</span>
+						<span class="text-slate-400 dark:text-slate-500">•</span>
+						<span class="text-slate-600 dark:text-slate-400">Android 11+</span>
+						<span class="text-slate-400 dark:text-slate-500">•</span>
+						<span class="text-slate-600 dark:text-slate-400">~3 МБ</span>
 					</div>
-					<div class="inline-flex items-center space-x-2 px-8 py-4 border border-slate-600 text-slate-400 font-semibold rounded-lg cursor-not-allowed">
+					<div class="inline-flex items-center space-x-2 px-8 py-4 border border-slate-300 dark:border-slate-600 text-slate-500 dark:text-slate-400 font-semibold rounded-lg cursor-not-allowed transition-colors bg-white/50 dark:bg-transparent backdrop-blur-sm">
 						<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V16H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z"/>
 						</svg>
@@ -39,100 +41,92 @@ const image = '/og-bit-hub.png';
 				</div>
 
 				<!-- Features -->
-				<div class="glass-effect rounded-xl p-8 mb-8">
-					<h2 class="text-2xl font-bold mb-6 text-white text-center font-display">Ключевые особенности</h2>
+				<div class="glass-effect rounded-xl p-8 mb-8 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 backdrop-blur-md shadow-xl transition-colors">
+					<h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white text-center font-display transition-colors">Ключевые особенности</h2>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-						<div class="flex items-start space-x-3">
-							<svg class="w-6 h-6 text-red-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
-							</svg>
-							<div>
-								<h3 class="text-lg font-semibold text-white mb-1 font-display">Минималистичный интерфейс</h3>
-								<p class="text-slate-400 text-sm font-light">Простой и интуитивный дизайн без лишних элементов</p>
-							</div>
-						</div>
-						<div class="flex items-start space-x-3">
-							<svg class="w-6 h-6 text-red-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
-							</svg>
-							<div>
-								<h3 class="text-lg font-semibold text-white mb-1 font-display">Нативная производительность</h3>
-								<p class="text-slate-400 text-sm font-light">Оптимизированная запись без лагов и падений FPS</p>
-							</div>
-						</div>
-						<div class="flex items-start space-x-3">
-							<svg class="w-6 h-6 text-red-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
-							</svg>
-							<div>
-								<h3 class="text-lg font-semibold text-white mb-1 font-display">Приватность</h3>
-								<p class="text-slate-400 text-sm font-light">Никакой телеметрии или сбора данных пользователя</p>
-							</div>
-						</div>
-						<div class="flex items-start space-x-3">
-							<svg class="w-6 h-6 text-red-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
-							</svg>
-							<div>
-								<h3 class="text-lg font-semibold text-white mb-1 font-display">Минимальный размер</h3>
-								<p class="text-slate-400 text-sm font-light">Компактное приложение без лишних зависимостей</p>
-							</div>
-						</div>
+            <FeatureCard 
+              title="Минималистичный интерфейс" 
+              iconColor="text-red-600 dark:text-red-400"
+              description="Простой и интуитивный дизайн без лишних элементов"
+            >
+              <svg slot="icon" class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+              </svg>
+            </FeatureCard>
+            <FeatureCard 
+              title="Нативная производительность" 
+              iconColor="text-red-600 dark:text-red-400"
+              description="Оптимизированная запись без лагов и падений FPS"
+            >
+              <svg slot="icon" class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+              </svg>
+            </FeatureCard>
+            <FeatureCard 
+              title="Приватность" 
+              iconColor="text-red-600 dark:text-red-400"
+              description="Никакой телеметрии или сбора данных пользователя"
+            >
+              <svg slot="icon" class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+              </svg>
+            </FeatureCard>
+            <FeatureCard 
+              title="Минимальный размер" 
+              iconColor="text-red-600 dark:text-red-400"
+              description="Компактное приложение без лишних зависимостей"
+            >
+              <svg slot="icon" class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+              </svg>
+            </FeatureCard>
 					</div>
 				</div>
 
 				<!-- Screenshots -->
-				<div class="glass-effect rounded-xl p-8 mb-8">
-					<h2 class="text-2xl font-bold mb-6 text-white text-center font-display">Интерфейс приложения</h2>
-					<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-						<div class="bg-slate-800 rounded-lg p-4 text-center">
-							<div class="w-full h-48 bg-slate-700 rounded-lg mb-2 flex items-center justify-center">
-								<svg class="w-16 h-16 text-slate-500" fill="currentColor" viewBox="0 0 24 24">
+				<div class="glass-effect rounded-xl p-8 mb-8 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 backdrop-blur-md shadow-xl transition-colors">
+					<h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white text-center font-display transition-colors">Интерфейс приложения</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						<div class="bg-slate-100 dark:bg-slate-800 rounded-lg p-4 text-center border border-slate-200 dark:border-slate-700 transition-colors">
+							<div class="w-full h-48 bg-white dark:bg-slate-700 rounded-lg mb-2 flex items-center justify-center shadow-sm dark:shadow-none transition-colors">
+								<svg class="w-16 h-16 text-slate-400 dark:text-slate-500" fill="currentColor" viewBox="0 0 24 24">
 									<path d="M17,10.5V7A1,1 0 0,0 16,6H4A1,1 0 0,0 3,7V17A1,1 0 0,0 4,18H16A1,1 0 0,0 17,17V13.5L21,17.5V6.5L17,10.5Z"/>
 								</svg>
 							</div>
-							<p class="text-slate-400 text-sm">Главный экран</p>
+							<p class="text-slate-600 dark:text-slate-400 text-sm transition-colors">Главный экран</p>
 						</div>
-						<div class="bg-slate-800 rounded-lg p-4 text-center">
-							<div class="w-full h-48 bg-slate-700 rounded-lg mb-2 flex items-center justify-center">
-								<svg class="w-16 h-16 text-slate-500" fill="currentColor" viewBox="0 0 24 24">
+						<div class="bg-slate-100 dark:bg-slate-800 rounded-lg p-4 text-center border border-slate-200 dark:border-slate-700 transition-colors">
+							<div class="w-full h-48 bg-white dark:bg-slate-700 rounded-lg mb-2 flex items-center justify-center shadow-sm dark:shadow-none transition-colors">
+								<svg class="w-16 h-16 text-slate-400 dark:text-slate-500" fill="currentColor" viewBox="0 0 24 24">
 									<path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
 								</svg>
 							</div>
-							<p class="text-slate-400 text-sm">Настройки записи</p>
-						</div>
-						<div class="bg-slate-800 rounded-lg p-4 text-center">
-							<div class="w-full h-48 bg-slate-700 rounded-lg mb-2 flex items-center justify-center">
-								<svg class="w-16 h-16 text-slate-500" fill="currentColor" viewBox="0 0 24 24">
-									<path d="M3,3H21V21H3V3M5,5V19H19V5H5M7,7H9V9H7V7M11,7H13V9H11V7M15,7H17V9H15V7M7,11H9V13H7V11M11,11H13V13H11V11M15,11H17V13H15V11M7,15H9V17H7V15M11,15H13V17H11V15M15,15H17V17H15V15Z"/>
-								</svg>
-							</div>
-							<p class="text-slate-400 text-sm">Галерея записей</p>
+							<p class="text-slate-600 dark:text-slate-400 text-sm transition-colors">Настройки записи</p>
 						</div>
 					</div>
 				</div>
 
 				<!-- Technical Details -->
-				<div class="glass-effect rounded-xl p-8 mb-8">
-					<h2 class="text-2xl font-bold mb-6 text-white text-center font-display">Технические детали</h2>
+				<div class="glass-effect rounded-xl p-8 mb-8 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 backdrop-blur-md shadow-xl transition-colors">
+					<h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-white text-center font-display transition-colors">Технические детали</h2>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 						<div>
-							<h3 class="text-lg font-semibold text-white mb-3 font-display">Системные требования</h3>
-							<ul class="space-y-2 text-slate-300">
+							<h3 class="text-lg font-semibold text-slate-800 dark:text-white mb-3 font-display transition-colors">Системные требования</h3>
+							<ul class="space-y-2 text-slate-600 dark:text-slate-300 transition-colors">
 								<li class="flex items-center space-x-2">
-									<svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+									<svg class="w-4 h-4 text-red-600 dark:text-red-400" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
 									</svg>
 									<span>Android 11 (API 30) и выше</span>
 								</li>
 								<li class="flex items-center space-x-2">
-									<svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+									<svg class="w-4 h-4 text-red-600 dark:text-red-400" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
 									</svg>
 									<span>ARMv7, ARM64</span>
 								</li>
 								<li class="flex items-center space-x-2">
-									<svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+									<svg class="w-4 h-4 text-red-600 dark:text-red-400" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
 									</svg>
 									<span>2 ГБ ОЗУ (рекомендуется)</span>
@@ -140,22 +134,22 @@ const image = '/og-bit-hub.png';
 							</ul>
 						</div>
 						<div>
-							<h3 class="text-lg font-semibold text-white mb-3 font-display">Технологический стек</h3>
-							<ul class="space-y-2 text-slate-300">
+							<h3 class="text-lg font-semibold text-slate-800 dark:text-white mb-3 font-display transition-colors">Технологический стек</h3>
+							<ul class="space-y-2 text-slate-600 dark:text-slate-300 transition-colors">
 								<li class="flex items-center space-x-2">
-									<svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+									<svg class="w-4 h-4 text-orange-500 dark:text-orange-400" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
 									</svg>
 									<span>Kotlin + Coroutines</span>
 								</li>
 								<li class="flex items-center space-x-2">
-									<svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+									<svg class="w-4 h-4 text-orange-500 dark:text-orange-400" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
 									</svg>
 									<span>Jetpack Compose</span>
 								</li>
 								<li class="flex items-center space-x-2">
-									<svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+									<svg class="w-4 h-4 text-orange-500 dark:text-orange-400" fill="currentColor" viewBox="0 0 24 24">
 										<path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
 									</svg>
 									<span>MediaRecorder API</span>
@@ -166,16 +160,16 @@ const image = '/og-bit-hub.png';
 				</div>
 
 				<!-- Status -->
-				<div class="glass-effect rounded-xl p-8 mb-8">
+				<div class="glass-effect rounded-xl p-8 mb-8 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 backdrop-blur-md shadow-xl transition-colors">
 					<div class="text-center">
-						<svg class="w-16 h-16 text-yellow-400 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+						<svg class="w-16 h-16 text-yellow-500 dark:text-yellow-400 mx-auto mb-4 transition-colors" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
 						</svg>
-						<h3 class="text-xl font-semibold text-white mb-2 font-display">В разработке</h3>
-						<p class="text-slate-400 mb-4 max-w-2xl mx-auto font-light">
+						<h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2 font-display transition-colors">В разработке</h3>
+						<p class="text-slate-600 dark:text-slate-400 mb-4 max-w-2xl mx-auto font-light transition-colors">
 							bit Record находится на стадии планирования. Мы работаем над созданием простого и эффективного рекордера экрана с фокусом на приватность и производительность.
 						</p>
-						<div class="flex items-center justify-center space-x-4 text-sm text-slate-400">
+						<div class="flex items-center justify-center space-x-4 text-sm text-slate-500 dark:text-slate-400 transition-colors">
 							<span>Статус: Planning</span>
 							<span>•</span>
 							<span>Релиз: 2026</span>
@@ -185,18 +179,18 @@ const image = '/og-bit-hub.png';
 
 				<!-- Navigation -->
 				<div class="text-center">
-					<a href="/" class="inline-flex items-center space-x-2 px-6 py-3 border border-slate-600 text-slate-300 font-semibold rounded-lg hover:bg-slate-800 hover:text-white transition-all duration-200 mr-4">
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <Button href="/" variant="outline" class="mr-4">
+						<svg class="w-5 h-5 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/>
 						</svg>
 						<span>Вернуться на главную</span>
-					</a>
-					<a href="/privacy" class="inline-flex items-center space-x-2 px-6 py-3 border border-slate-600 text-slate-300 font-semibold rounded-lg hover:bg-slate-800 hover:text-white transition-all duration-200">
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          </Button>
+          <Button href="/privacy" variant="outline">
+						<svg class="w-5 h-5 drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V16H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z"/>
 						</svg>
 						<span>Политика конфиденциальности</span>
-					</a>
+          </Button>
 				</div>
 			</div>
 		</div>

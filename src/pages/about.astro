@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import FeatureCard from '../components/FeatureCard.astro';
 
 const title = 'О компании — bit Tecnologies';
 const description = 'Узнайте больше о bit Tecnologies — команде, создающей нативные Android приложения с фокусом на производительность и приватность.';
@@ -9,10 +11,10 @@ const image = '/og-bit-hub.png';
 <Layout title={title} description={description} image={image}>
 	<section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900">
 		<div class="container mx-auto px-4 py-16 md:py-24">
-			<div class="max-w-4xl mx-auto">
+			<div class="max-w-4xl mx-auto z-10 relative">
 				<div class="text-center mb-12">
-					<img src="/favicon.svg" alt="bit Tecnologies" class="w-20 h-20 mx-auto mb-6" />
-					<h1 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent font-display">
+					<img src="/favicon.svg" alt="bit Tecnologies" class="w-20 h-20 mx-auto mb-6 drop-shadow-lg" style="view-transition-name: hero-logo;" />
+					<h1 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent font-display drop-shadow-sm">
 						О bit Tecnologies
 					</h1>
 					<p class="text-lg md:text-xl text-slate-300 leading-relaxed font-light">
@@ -21,26 +23,20 @@ const image = '/og-bit-hub.png';
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-					<div class="glass-effect rounded-xl p-6 hover:bg-slate-800/70 transition-all duration-300">
-						<div class="flex items-center space-x-3 mb-4">
-							<svg class="w-8 h-8 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
-							</svg>
-							<h3 class="text-xl font-semibold text-white font-display">Наша миссия</h3>
-						</div>
-						<p class="text-slate-300 leading-relaxed font-light">
-							Разрабатывать легкие, быстрые и безопасные Android приложения без лишних зависимостей и telemetry.
-							Мы верим в право пользователей на приватность и контроль над своими данными.
-						</p>
-					</div>
+          <FeatureCard 
+            title="Наша миссия" 
+            iconColor="text-blue-500"
+            description="Разрабатывать легкие, быстрые и безопасные Android приложения без лишних зависимостей и telemetry. Мы верим в право пользователей на приватность и контроль над своими данными."
+          >
+            <svg slot="icon" class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+            </svg>
+          </FeatureCard>
 
-					<div class="glass-effect rounded-xl p-6 hover:bg-slate-800/70 transition-all duration-300">
-						<div class="flex items-center space-x-3 mb-4">
-							<svg class="w-8 h-8 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
-								<path d="M9,11H7V13H9V11M13,11H11V13H13V11M17,11H15V13H17V11M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V9H19V20Z"/>
-							</svg>
-							<h3 class="text-xl font-semibold text-white font-display">Наши ценности</h3>
-						</div>
+          <FeatureCard title="Наши ценности" iconColor="text-emerald-500">
+            <svg slot="icon" class="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M9,11H7V13H9V11M13,11H11V13H13V11M17,11H15V13H17V11M19,4H18V2H16V4H8V2H6V4H5C3.89,4 3,4.9 3,6V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V6A2,2 0 0,0 19,4M19,20H5V9H19V20Z"/>
+            </svg>
 						<ul class="space-y-2 text-slate-300">
 							<li class="flex items-center space-x-2">
 								<svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
@@ -61,49 +57,54 @@ const image = '/og-bit-hub.png';
 								<span>Открытый исходный код</span>
 							</li>
 						</ul>
-					</div>
+          </FeatureCard>
 				</div>
 
 				<div class="glass-effect rounded-xl p-8 mb-12">
 					<h2 class="text-2xl font-bold mb-6 text-white text-center font-display">Технологии и подход</h2>
 					<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-						<div class="text-center">
-							<div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mx-auto mb-4">
-								<svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-									<path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
-								</svg>
-							</div>
-							<h3 class="text-lg font-semibold text-white mb-2 font-display">Kotlin & Java</h3>
-							<p class="text-slate-400 text-sm font-light">Нативная разработка на официальных языках Android</p>
-						</div>
-						<div class="text-center">
-							<div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-4">
-								<svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-									<path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
-								</svg>
-							</div>
-							<h3 class="text-lg font-semibold text-white mb-2 font-display">Jetpack Compose</h3>
-							<p class="text-slate-400 text-sm font-light">Современный UI toolkit для декларативных интерфейсов</p>
-						</div>
-						<div class="text-center">
-							<div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-4">
-								<svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-									<path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
-								</svg>
-							</div>
-							<h3 class="text-lg font-semibold text-white mb-2 font-display">Material Design 3</h3>
-							<p class="text-slate-400 text-sm font-light">Современный дизайн с адаптивной темизацией</p>
-						</div>
+            <FeatureCard 
+              title="Kotlin & Java"
+              description="Нативная разработка на официальных языках Android"
+              iconColor="text-white"
+              iconBgColor="from-green-500 to-emerald-500"
+            >
+              <svg slot="icon" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+              </svg>
+            </FeatureCard>
+            
+            <FeatureCard 
+              title="Jetpack Compose"
+              description="Современный UI toolkit для декларативных интерфейсов"
+              iconColor="text-white"
+              iconBgColor="from-blue-500 to-cyan-500"
+            >
+              <svg slot="icon" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+              </svg>
+            </FeatureCard>
+
+            <FeatureCard 
+              title="Material Design 3"
+              description="Современный дизайн с адаптивной темизацией"
+              iconColor="text-white"
+              iconBgColor="from-purple-500 to-pink-500"
+            >
+              <svg slot="icon" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+              </svg>
+            </FeatureCard>
 					</div>
 				</div>
 
 				<div class="text-center">
-					<a href="/" class="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-emerald-600 transition-all duration-200">
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <Button href="/" variant="primary">
+						<svg class="w-5 h-5 drop-shadow" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/>
 						</svg>
 						<span>Вернуться на главную</span>
-					</a>
+          </Button>
 				</div>
 			</div>
 		</div>

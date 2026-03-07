@@ -1,0 +1,31 @@
+---
+// src/components/FeatureCard.astro
+export interface Props {
+  title: string;
+  description?: string;
+  iconColor: string; // e.g., 'text-blue-500'
+  iconBgColor?: string; // used for the circle background fallback if passed
+}
+
+const { title, description, iconColor, iconBgColor } = Astro.props;
+---
+
+<div class="glass-effect rounded-xl p-6 hover:bg-slate-800/70 transition-all duration-300 group h-full">
+  <div class="flex items-center space-x-3 mb-4">
+    {iconBgColor ? (
+      <div class={`w-16 h-16 bg-gradient-to-br transition-transform duration-300 group-hover:scale-110 ${iconBgColor} rounded-lg flex items-center justify-center mx-auto mb-4`}>
+        <slot name="icon" />
+      </div>
+    ) : (
+      <span class={`w-8 h-8 transition-transform duration-300 group-hover:scale-110 ${iconColor}`}>
+        <slot name="icon" />
+      </span>
+    )}
+    {!iconBgColor && <h3 class={`text-xl font-semibold text-white font-display group-hover:${iconColor} transition-colors`}>{title}</h3>}
+  </div>
+  {iconBgColor && <h3 class="text-lg font-semibold text-white mb-2 font-display text-center">{title}</h3>}
+  
+  <slot>
+    {description && <p class={`text-slate-300 ${iconBgColor ? 'text-sm font-light text-center' : 'leading-relaxed font-light'}`}>{description}</p>}
+  </slot>
+</div>

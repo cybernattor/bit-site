@@ -1,0 +1,56 @@
+---
+// src/components/AppCard.astro
+export interface Props {
+  href: string;
+  name: string;
+  status: {
+    label: string;
+    color: 'emerald' | 'blue' | 'yellow';
+  };
+  description: string;
+  requirements: string;
+  size: string;
+  iconBgColor?: string; // e.g., 'from-purple-500 to-pink-500' - if not provided, uses image
+  iconImage?: string; // e.g., '/favicon.svg'
+}
+
+const { href, name, status, description, requirements, size, iconBgColor, iconImage } = Astro.props;
+
+const statusColors = {
+  emerald: 'bg-emerald-500/20 text-emerald-400',
+  blue: 'bg-blue-500/20 text-blue-400',
+  yellow: 'bg-yellow-500/20 text-yellow-400',
+};
+
+// Map primary colors for shadows based on status color to keep it simple but vibrant
+const shadowColors = {
+  emerald: 'hover:shadow-blue-500/10',
+  blue: 'hover:shadow-purple-500/10',
+  yellow: 'hover:shadow-red-500/10'
+};
+---
+
+<a href={href} class="block">
+  <div class={`glass-effect rounded-xl p-6 hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-xl ${shadowColors[status.color]} group h-full flex flex-col`}>
+    <div class="flex items-center space-x-4 mb-4">
+      {iconImage ? (
+        <img src={iconImage} alt={name} class="w-12 h-12 group-hover:scale-110 transition-transform duration-300" />
+      ) : (
+        <div class={`w-12 h-12 bg-gradient-to-br ${iconBgColor} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+          <slot name="icon" />
+        </div>
+      )}
+      <div>
+        <h3 class="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors font-display">{name}</h3>
+        <span class={`inline-block px-2 py-1 text-xs rounded-full ${statusColors[status.color]}`}>{status.label}</span>
+      </div>
+    </div>
+    <p class="text-slate-300 mb-4 leading-relaxed flex-grow">
+      {description}
+    </p>
+    <div class="flex items-center justify-between text-sm text-slate-400 mt-auto">
+      <span>{requirements}</span>
+      <span>{size}</span>
+    </div>
+  </div>
+</a>
