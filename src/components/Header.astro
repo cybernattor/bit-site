@@ -2,6 +2,8 @@
 // src/components/Header.astro
 import ThemeToggle from './ThemeToggle.astro';
 import LanguagePicker from './LanguagePicker.astro';
+import { Image } from 'astro:assets';
+import favicon from '../../public/favicon.svg';
 import { getLangFromUrl, useTranslations, translatePath } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -13,7 +15,7 @@ const translate = translatePath(Astro.url);
   <nav class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
       <a href={translate('/')} class="flex flex-row items-center space-x-2">
-        <img src="/favicon.svg" alt="bit Tecnologies" class="w-8 h-8" />
+        <Image src={favicon} alt="bit Tecnologies" class="w-8 h-8" />
         <span class="text-xl font-bold font-display bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent">
           bit Tecnologies
         </span>

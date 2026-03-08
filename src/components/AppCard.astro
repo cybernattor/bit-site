@@ -1,5 +1,6 @@
----
 // src/components/AppCard.astro
+import { Image } from 'astro:assets';
+import favicon from '../../public/favicon.svg';
 export interface Props {
   href: string;
   name: string;
@@ -34,7 +35,7 @@ const shadowColors = {
   <div class={`glass-effect rounded-xl p-5 md:p-6 hover:bg-slate-50 dark:hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-xl ${shadowColors[status.color]} group h-full flex flex-col`}>
     <div class="flex items-center space-x-4 mb-4">
       {iconImage ? (
-        <img src={iconImage} alt={name} class="w-12 h-12 group-hover:scale-110 transition-transform duration-300" />
+        <Image src={favicon} alt={name} class="w-12 h-12 group-hover:scale-110 transition-transform duration-300" />
       ) : (
         <div class={`w-12 h-12 bg-gradient-to-br ${iconBgColor} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
           <slot name="icon" />

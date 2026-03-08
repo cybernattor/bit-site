@@ -3,6 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import AppCard from '../components/AppCard.astro';
 import Button from '../components/Button.astro';
 import FeatureCard from '../components/FeatureCard.astro';
+import { Image } from 'astro:assets';
+import favicon from '../../public/favicon.svg';
+import { getLangFromUrl, useTranslations, translatePath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translate = translatePath(Astro.url);
 
 const title = 'bit Tecnologies — Экосистема удобных приложений';
 const description = 'bit Tecnologies разрабатывает нативные, быстрые и приватные приложения для Android. Никакой телеметрии и рекламы.';
@@ -45,24 +52,23 @@ const schema = {
 		<div class="container mx-auto px-4 py-16 md:py-24">
 			<div class="text-center max-w-4xl mx-auto z-10 relative">
 				<div class="mb-6" style="view-transition-name: hero-logo;">
-					<img src="/favicon.svg" alt="bit Tecnologies" class="w-20 h-20 mx-auto mb-6 drop-shadow-lg" />
+					<Image src={favicon} alt="bit Tecnologies" class="w-20 h-20 mx-auto mb-6 drop-shadow-lg" />
 				</div>
 				<h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-emerald-600 dark:from-blue-500 dark:to-emerald-500 bg-clip-text text-transparent animate-pulse font-display drop-shadow-sm">
-					bit Tecnologies
+					{t('hero.title')}
 				</h1>
 				<p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
-					Создаем нативные Android приложения с высокой производительностью и заботой о пользователях.
-					Минимум зависимостей, максимум оптимизации.
+					{t('hero.subtitle')}
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
 					<Button href="#download" variant="primary" download>
 						<svg class="w-5 h-5 drop-shadow" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M17 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14l-4-4h3V9h2v4h3l-4 4z"/>
 						</svg>
-						<span>Скачать bit Hub (APK)</span>
+						<span>{t('hero.download_hub')}</span>
 					</Button>
-					<Button href="/about" variant="outline">
-						О компании
+					<Button href={translate('/about')} variant="outline">
+						{t('hero.about_company')}
 					</Button>
 				</div>
 			</div>
@@ -78,19 +84,19 @@ const schema = {
 	<section id="apps" class="py-16 md:py-24 bg-slate-50/50 dark:bg-slate-900/50 transition-colors duration-300">
 		<div class="container mx-auto px-4">
 			<div class="text-center mb-12">
-				<h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white font-display">Наши приложения</h2>
+				<h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white font-display">{t('home.apps')}</h2>
 				<p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-light">
-					Нативные Android приложения, созданные с акцентом на производительность и пользовательский опыт
+					{t('home.apps_subtitle')}
 				</p>
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 				<!-- bit Hub Card -->
         <AppCard 
-          href="/bit-hub"
-          name="bit Hub"
+          href={translate('/bit-hub')}
+          name={t('app.bithub')}
           status={{ label: "Beta", color: "emerald" }}
-          description="Альтернатива F-Droid с нативной разработкой. Магазин приложений с фокусом на приватность и производительность."
+          description={t('app.bithub_desc')}
           requirements="Android 10+"
           size="2.4 МБ"
           iconImage="/favicon.svg"
