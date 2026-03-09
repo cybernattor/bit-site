@@ -8,12 +8,11 @@ export interface GitHubRelease {
   changelog: string;
 }
 
-export async function fetchLatestRelease(repo: string): Promise<GitHubRelease | null> {
+export async function fetchLatestRelease(repo: string, lang: string = 'ru'): Promise<GitHubRelease | null> {
   try {
     const response = await fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
       headers: {
         'Accept': 'application/vnd.github.v3+json',
-        // 'User-Agent': 'Astro-Build' // good practice for github api
       }
     });
 
@@ -27,21 +26,26 @@ export async function fetchLatestRelease(repo: string): Promise<GitHubRelease | 
     // Find first APK asset if available
     const apkAsset = data.assets?.find((asset: any) => asset.name.endsWith('.apk'));
     
-    let sizeStr = 'Неизвестно';
+    const sizeUnit = lang === 'en' ? 'MB' : 'МБ';
+    const unknownLabel = lang === 'en' ? 'Unknown' : 'Неизвестно';
+    const noDescLabel = lang === 'en' ? 'No release description.' : 'Нет описания релиза.';
+    const locale = lang === 'en' ? 'en-US' : 'ru-RU';
+
+    let sizeStr = unknownLabel;
     if (apkAsset && apkAsset.size) {
-      sizeStr = (apkAsset.size / (1024 * 1024)).toFixed(1) + ' МБ';
+      sizeStr = (apkAsset.size / (1024 * 1024)).toFixed(1) + ' ' + sizeUnit;
     }
 
     return {
       version: data.tag_name || data.name || 'Latest',
       url: data.html_url,
       size: sizeStr,
-      publishedAt: new Date(data.published_at).toLocaleDateString('ru-RU', {
+      publishedAt: new Date(data.published_at).toLocaleDateString(locale, {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
       }),
-      changelog: data.body || 'Нет описания релиза.'
+      changelog: data.body || noDescLabel
     };
   } catch (e) {
     console.error(`Error fetching GitHub release for ${repo}:`, e);

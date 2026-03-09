@@ -21,7 +21,7 @@ const { title, description, iconColor, iconBgColor } = Astro.props;
         <slot name="icon" />
       </span>
     )}
-    {!iconBgColor && <h3 class={`text-xl font-semibold text-slate-900 dark:text-white font-display group-hover:${iconColor} transition-colors`}>{title}</h3>}
+    {!iconBgColor && <h3 class="text-xl font-semibold text-slate-900 dark:text-white font-display group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">{title}</h3>}
   </div>
   {iconBgColor && <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2 font-display text-center">{title}</h3>}
   

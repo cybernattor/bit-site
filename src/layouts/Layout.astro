@@ -15,6 +15,12 @@ export interface Props {
 
 const { title, description, image = "/og-image.png", schema } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://cybernattor.github.io');
+
+// Build alternate language URLs
+const currentPath = Astro.url.pathname;
+const ruURL = new URL(currentPath.replace(/^\/en\//, '/').replace(/^\/en$/, '/'), Astro.site || 'https://cybernattor.github.io');
+const enURL = new URL(currentPath.startsWith('/en') ? currentPath : `/en${currentPath}`, Astro.site || 'https://cybernattor.github.io');
 
 const defaultSchema = {
 	"@context": "https://schema.org",
@@ -50,7 +56,14 @@ const jsonLd = schema || defaultSchema;
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={image} />
 		<meta property="og:type" content="website" />
-		<meta property="og:locale" content="ru_RU" />
+		<meta property="og:locale" content={lang === 'en' ? 'en_US' : 'ru_RU'} />
+		<meta property="og:url" content={canonicalURL.href} />
+
+		<!-- Canonical & Hreflang -->
+		<link rel="canonical" href={canonicalURL.href} />
+		<link rel="alternate" hreflang="ru" href={ruURL.href} />
+		<link rel="alternate" hreflang="en" href={enURL.href} />
+		<link rel="alternate" hreflang="x-default" href={ruURL.href} />
 
 		<!-- Twitter Card Tags -->
 		<meta name="twitter:card" content="summary_large_image" />
@@ -108,10 +121,14 @@ const jsonLd = schema || defaultSchema;
 
 		<!-- Scroll Reveal Observer -->
 		<script>
+		let currentObserver: IntersectionObserver | null = null;
+
 			function setupRevealObserver() {
+				if (currentObserver) currentObserver.disconnect();
+
 				const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
 				
-				const observer = new IntersectionObserver((entries) => {
+				currentObserver = new IntersectionObserver((entries) => {
 					entries.forEach(entry => {
 						if (entry.isIntersecting) {
 							entry.target.classList.add('visible');
@@ -122,7 +139,7 @@ const jsonLd = schema || defaultSchema;
 					rootMargin: '0px 0px -50px 0px'
 				});
 				
-				reveals.forEach(el => observer.observe(el));
+				reveals.forEach(el => currentObserver!.observe(el));
 			}
 
 			// Cursor glow effect

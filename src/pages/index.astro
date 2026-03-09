@@ -6,10 +6,14 @@ import FeatureCard from '../components/FeatureCard.astro';
 import { Image } from 'astro:assets';
 import favicon from '../../public/favicon.svg';
 import { getLangFromUrl, useTranslations, translatePath } from '../i18n/utils';
+import { fetchLatestRelease } from '../utils/github';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translate = translatePath(Astro.url);
+
+const release = await fetchLatestRelease('cybernattor/bit-hub', lang);
+const downloadUrl = release?.url || translate('/bit-hub');
 
 const title = 'bit Tecnologies — Экосистема удобных приложений';
 const description = 'bit Tecnologies разрабатывает нативные, быстрые и приватные приложения для Android. Никакой телеметрии и рекламы.';
@@ -66,7 +70,7 @@ const schema = {
 				</p>
 
 				<div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal stagger-4">
-					<Button href="#download" variant="primary" download>
+					<Button href={downloadUrl} variant="primary" download>
 						<svg class="w-5 h-5 drop-shadow animate-bounce-subtle" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M17 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14l-4-4h3V9h2v4h3l-4 4z"/>
 						</svg>
@@ -345,7 +349,7 @@ const schema = {
 					<p class="text-lg text-slate-600 dark:text-slate-300 mb-10 font-light max-w-xl mx-auto">
 						Скачайте bit Hub прямо сейчас и ощутите разницу нативного подхода
 					</p>
-					<Button href="#download" variant="primary" download>
+					<Button href={downloadUrl} variant="primary" download>
 						<svg class="w-6 h-6 drop-shadow" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M17 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14l-4-4h3V9h2v4h3l-4 4z"/>
 						</svg>
