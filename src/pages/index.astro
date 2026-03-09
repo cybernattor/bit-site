@@ -59,11 +59,12 @@ const schema = {
 			<div class="text-center max-w-4xl mx-auto z-10 relative">
 				<!-- Animated Logo -->
 				<div class="mb-8 reveal" style="view-transition-name: hero-logo;">
-					<div class="relative inline-block">
-						<Image src={favicon} alt="bit Tecnologies" class="w-24 h-24 mx-auto drop-shadow-2xl animate-float" />
-						<!-- Orbital ring -->
-						<div class="absolute inset-0 w-32 h-32 -m-4 mx-auto border border-blue-500/5 rounded-full animate-spin-slow"></div>
-						<div class="absolute inset-0 w-40 h-40 -m-8 mx-auto border border-emerald-500/3 rounded-full animate-spin-slow" style="animation-direction: reverse; animation-duration: 25s;"></div>
+					<div class="relative inline-flex items-center justify-center">
+						<Image src={favicon} alt="bit Tecnologies" class="w-24 h-24 drop-shadow-2xl animate-float relative z-10" />
+						<!-- Orbital ring 1 -->
+						<div class="absolute w-36 h-36 border border-blue-500/5 rounded-full animate-spin-slow -z-10"></div>
+						<!-- Orbital ring 2 -->
+						<div class="absolute w-44 h-44 border border-emerald-500/3 rounded-full animate-spin-slow -z-10" style="animation-direction: reverse; animation-duration: 25s;"></div>
 					</div>
 				</div>
 
