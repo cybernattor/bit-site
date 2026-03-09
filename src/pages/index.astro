@@ -23,7 +23,12 @@ const schema = {
 	"@type": "WebSite",
 	"name": "bit Tecnologies",
 	"url": "https://cybernattor.github.io",
-	"description": description
+	"description": description,
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "https://cybernattor.github.io/search?q={search_term_string}",
+		"query-input": "required name=search_term_string"
+	}
 };
 ---
 
@@ -35,11 +40,10 @@ const schema = {
       const storedLang = localStorage.getItem('user-lang');
       if (!storedLang && window.location.pathname === '/') {
         const browserLang = navigator.language || navigator.userLanguage;
-        if (browserLang.toLowerCase().startsWith('en')) {
-          localStorage.setItem('user-lang', 'en');
+        const preferredLang = browserLang.toLowerCase().startsWith('en') ? 'en' : 'ru';
+        localStorage.setItem('user-lang', preferredLang);
+        if (preferredLang === 'en') {
           window.location.replace('/en/');
-        } else {
-          localStorage.setItem('user-lang', 'ru');
         }
       }
     })();
@@ -218,7 +222,7 @@ const schema = {
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 				<div class="reveal stagger-1">
-					<AppCard 
+					<AppCard
 						href={translate('/bit-hub')}
 						name={t('app.bithub')}
 						status={{ label: "Beta", color: "emerald" }}
@@ -230,7 +234,7 @@ const schema = {
 				</div>
 
 				<div class="reveal stagger-2">
-					<AppCard 
+					<AppCard
 						href={translate('/bit-delta')}
 						name={t('app.bitdelta')}
 						status={{ label: t('app.in_development'), color: "blue" }}
@@ -246,7 +250,7 @@ const schema = {
 				</div>
 
 				<div class="reveal stagger-3">
-					<AppCard 
+					<AppCard
 						href={translate('/bit-record')}
 						name={t('app.bitrecord')}
 						status={{ label: t('app.planning'), color: "yellow" }}
